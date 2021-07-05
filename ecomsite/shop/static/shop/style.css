@@ -1,0 +1,97 @@
+body{
+background-color:rgb(212, 108, 48);
+display: flex;
+flex-direction: column;
+}
+#header-img{ 
+    max-height: 140px;
+    max-width: 200px;
+    margin: 0px 0px 0px 0px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 100vw;
+    font-family: Sans-serif;
+    justify-content: space-between;
+}
+#carrito{
+    width: 3vw;
+    height: 4vh;
+}
+
+.boton{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 30px 10px 30px 10px;
+    gap: 4px;
+}
+.header-button{
+    color: rgb(212, 108, 48);
+    width: 100%;
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;    
+}
+.header-button:hover {
+    opacity: 1;
+    background: tomato;
+    color: white;
+    transform: scale(1.2);
+}
+#menu{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 1.3%;
+}
+nav{
+    display: flex;
+    background-color:rgb(212, 108, 48);
+    width: 100%;
+}
+.a-button{
+    color: white;
+    width: 100%;
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;
+
+}
+.nav-button{
+    color: white;
+    width: 100%;
+    height: 100%;
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;
+}
+.nav-button:hover {
+    opacity: 1;
+    background: tomato;
+    transform: scale(1.5);
+    letter-spacing: 5px;
+    transition: 0.5s;
+}
+#input-busca{
+    border: none;
+    border-radius: 10px;
+    height: 120%;
+}
+#button-busca{
+    opacity: 50%;
+    border: none;
+}
+#img-search{
+    height: 10px;
+    width: 10px;
+}
+footer{
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 5%;
+}
