@@ -14,80 +14,120 @@
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
 <body>
+    
     <header id="header-index">
+        
         <img id="header-img" src="https://image.freepik.com/vector-gratis/jaguar-vector-logo-icono-ilustracion-mascota_1893-891.jpg">
-            <div class="boton">
+        
+        <div class="boton">
+            
             <a class="header-button">Login</a>
             <a class="header-button">Registrar</a>
             <button id="cart" type="button" class="header-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="uhuuhuh">
               Carrito (0)
-            </button>           
-         </div>    
+            </button>      
+                
+         </div>   
+        
     </header>
     
-                <nav>
-                    <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
-                    <a href="categorias" class="a-button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <button class="nav-button">Categorias</button>
-                    </a>
-                      <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="categorias">Todas las categorias</a>
-                        <a class="dropdown-item" href="#">Combos</a>
-                        <a class="dropdown-item" href="#">Comidas</a>
-                        <a class="dropdown-item" href="#">Bebidas</a>
-                      </div>                    
-                    <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
-                    <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
-                    <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
-                    <form class="row">
-                        <input id="input-busca" class="form-control" type="search" name="item_name" aria-label="Search" placeholder="Buscar">
-                        <button id="button-busca" class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>   
-                </nav>    
-    <div class="container">  
-    <!----------------------------Cuerpo del producto---------------------------------------->
+    <nav>
+        
+        <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
+        <a href="categorias" class="a-button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="nav-button">Categorias</button>
+        </a>
+        <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+            <a class="dropdown-item" href="categorias">Todas las categorias</a>
+            <a class="dropdown-item" href="#">Combos</a>
+            <a class="dropdown-item" href="#">Comidas</a>
+            <a class="dropdown-item" href="#">Bebidas</a>
+              
+        </div>                    
+        <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
+        <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
+        <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
+        <form class="row">
+            
+            <input id="input-busca" class="form-control" type="search" name="item_name" aria-label="Search" placeholder="Buscar">
+            <button id="button-busca" class="btn btn-outline-success" type="submit">Buscar</button>
+            
+        </form>   
+        
+    </nav> 
+    
+    <!--main-->
+    
+    <main class="container">
+       
         <div class="row">
+
             {% for product in product_objects %}
+
                 {%if product.title == "Bicicleta" or product.title == "pesas" or product.title == "Saco de boxeo"%}
+
                     <div class="col-md-4">
+
                         <div class="card">
                         <img src="{{ product.image }}" class="card-img-top">
-                            <div class="card-body">
-                                <div class="card-tittle">
-                                    {{product.title }}
-                                </div>
-                                <div class="card-text">
+                        <div class="card-body">
+
+                            <div class="card-tittle">
+                                {{product.title }}
+                            </div>
+
+                            <div class="card-text">
                                     {{ product.price }}
-                                </div>
+                            </div>
+
                                 <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
-                                <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>                      
+                                <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>       
+
                             </div> 
+
                         </div>
+
                     </div>
+
                 {% else %}
+
                     <div class="col-md-12">
+
                         <div class="card">
-                           
+
                             <div class="card-body">
+
                                 <div id="name{{ product.id}}" class="card-tittle">
                                     {{product.title }}
                                 </div>
                                 <div class="card-text">
                                     {{ product.price }}
-                                </div>                        
+                                </div>      
+
                             </div> 
                             <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
-                            <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>      
-                        </div>                     
+                            <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>  
+
+                        </div>   
+
                     </div>
+
                 {% endif %}
-            {% endfor %}    
-        </div>        
-    </div>
-<footer>
-    <p>©Copyright</p>
-    <p>Jennifer Anabel Martinez</p>
-</footer>
+
+            {% endfor %} 
+            
+        </div>
+        
+    </main>
+    
+    <footer>
+
+        <p>©Copyright</p>
+        <p>Jennifer Anabel Martinez</p>
+
+    </footer>
+    
 </body>
 <script type="text/javascript">
     console.log('Funciona');
