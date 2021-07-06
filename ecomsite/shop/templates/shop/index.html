@@ -6,38 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Home</title>
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
 <body>
     <header id="header-index">
         <img id="header-img" src="https://image.freepik.com/vector-gratis/jaguar-vector-logo-icono-ilustracion-mascota_1893-891.jpg">
             <div class="boton">
-            <button class="header-button">Login</button>
-            <button class="header-button">Registrar</button>
-            <button class="header-button"><img id="carrito" src="https://w7.pngwing.com/pngs/317/428/png-transparent-shopping-cart-computer-icons-add-to-cart-button-angle-text-service.png">Carrito</button>
-            </div>    
+            <a class="header-button">Login</a>
+            <a class="header-button">Registrar</a>
+            <button id="cart" type="button" class="header-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="uhuuhuh">
+              Carrito (0)
+            </button>           
+         </div>    
     </header>
-   
-        <div>
-            <div id="menu">
-                <form>
-                    <div id="div-busca">
-                        <input id="input-busca" type="search" name="item_name" placeholder="Buscar">
-                        <button id="button-busca"  type="submit"><img id="img-search" src="https://toppng.com/uploads/preview/icono-de-lupa-11550131394mahkiu1ad0.png"></button>
-                    </div>
-                </form>
+    
                 <nav>
-                    <a href="index.html" class="a-button"><button class="nav-button">Home</button></a>
-                    <a href="categorias.html" class="a-button"><button class="nav-button">Categorias</button></a>
-                    <a href="{ % url 'about' % }" class="a-button"><button class="nav-button">Acerca de...</button></a>
-                    <a href="contacto.html"class="a-button"><button class="nav-button">Contacto</button></a>
+                    <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
+                    <a href="categorias" class="a-button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="nav-button">Categorias</button>
+                    </a>
+                      <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="categorias">Todas las categorias</a>
+                        <a class="dropdown-item" href="#">Combos</a>
+                        <a class="dropdown-item" href="#">Comidas</a>
+                        <a class="dropdown-item" href="#">Bebidas</a>
+                      </div>                    
+                    <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
+                    <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
                     <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
-                </nav>
-            </div>    
-        </div>   
-        <div class="container">  
+                    <form class="row">
+                        <input id="input-busca" class="form-control" type="search" name="item_name" aria-label="Search" placeholder="Buscar">
+                        <button id="button-busca" class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>   
+                </nav>    
+    <div class="container">  
     <!----------------------------Cuerpo del producto---------------------------------------->
         <div class="row">
             {% for product in product_objects %}
@@ -51,9 +58,10 @@
                                 </div>
                                 <div class="card-text">
                                     {{ product.price }}
-                                </div>                        
+                                </div>
+                                <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
+                                <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>                      
                             </div> 
-                            
                         </div>
                     </div>
                 {% else %}
@@ -61,14 +69,15 @@
                         <div class="card">
                            
                             <div class="card-body">
-                                <div class="card-tittle">
+                                <div id="name{{ product.id}}" class="card-tittle">
                                     {{product.title }}
                                 </div>
                                 <div class="card-text">
                                     {{ product.price }}
                                 </div>                        
                             </div> 
-
+                            <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
+                            <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>      
                         </div>                     
                     </div>
                 {% endif %}
@@ -80,6 +89,59 @@
     <p>Jennifer Anabel Martinez</p>
 </footer>
 </body>
+<script type="text/javascript">
+    console.log('Funciona');
+
+    if(localStorage.getItem('cart')==null){
+        var cart = {};
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+    $(document).on('click','.atc',function(){
+        console.log('el añadir fue clicado');
+        var item_id = this.id.toString();
+        console.log(item_id);
+
+        if(cart[item_id]!=undefined){
+            quantity = cart[item_id][0] +1;
+            cart[item_id][0] = quantity;
+
+        }
+        else{
+            quantity = 1; 
+            cart[item_id]=[quantity,name];
+
+            
+        }
+        console.log(cart);
+        localStorage.setItem('cart',JSON.stringify(cart));
+        document.getElementById("cart").innerHTML = "Carrito ("+ Object.keys(cart).length +")";
+        
+    });
+    $(function () {
+        $('.example-popover').popover({
+     container: 'body'
+    });     
+    $(function () {
+    $('[data-toggle="popover"]').popover()
+        document.getElementById("cart").setAttribute('data-content','<h2>Tu carrito</h2>');
+    });
+        Display(cart); 
+        function DisplayCart(cart){
+            var cartString ="";
+            cartString += document.getElementByID("nm"+x).innerHTML + cart
+            var cartIndex = 1;
+            for(var x in cart){
+                cartString += cartIndex;
+                cartString += document.getElementById("name"+x).innerHTML + "cant:" + cart[x];
+                cartIndex += 1;
+            }
+            cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>Checkout</button></a>";
+            document.getElementById("cart").setAttribute('data-content',cartString);
+            $('[data-toggle="popover"]').popover();
+        };
+</script>
 </html>
 
 

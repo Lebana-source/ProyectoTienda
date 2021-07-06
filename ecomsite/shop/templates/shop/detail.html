@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
-<title>Contacto</title>
+    <title>Document</title>
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
 <body>
@@ -31,17 +30,41 @@
                 </form>
                 <nav>
                     <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
-                    <a href="http://127.0.0.1:8000/categorias/" class="a-button"><button class="nav-button">Categorias</button></a>
-                    <a href="http://127.0.0.1:8000/about/" class="a-button"><button class="nav-button">Acerca de...</button></a>
-                    <a href="http://127.0.0.1:8000/contacto/"class="a-button"><button class="nav-button">Contacto</button></a>
+                    <a href="categorias" class="a-button"><button class="nav-button">Categorias</button></a>
+                    <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
+                    <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
                     <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
                 </nav>
             </div>    
         </div>   
-        <div class="container">  
-    <!----------------------------Cuerpo del producto---------------------------------------->    
-        <p>reclamos</p>
-</div>
+    <div class="container">  
+    <!----------------------------Cuerpo del producto---------------------------------------->
+aparece hostia
+                <div class="col-md-12">
+                    <div class="row">
+                    <img src="{{ products_objects.image }}">
+                    </div>
+                </div>       
+ 
+                <div>
+                       {{ product_object.title }}
+                </div>        
+                <div class="row">        
+                    <div class="col-md-12">
+                        {{ product_objects.price }}
+                    </div>                        
+                </div> 
+                <div class="row">        
+                    <div class="col-md-12">
+                        {{ product_objects.discount_price }}
+                    </div>                        
+                </div>                   
+                <div class="row">        
+                    <div class="col-md-12">
+                        {{ product_objects.description }}
+                    </div>                        
+                </div>      
+    </div>
 <footer>
     <p>©Copyright</p>
     <p>Jennifer Anabel Martinez</p>

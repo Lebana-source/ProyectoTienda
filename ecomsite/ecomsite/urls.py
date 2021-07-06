@@ -20,5 +20,8 @@ from shop import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index,name= 'index'),
+    path('<int:id>/', views.detail, name= 'detail'),
     path('about/', views.about,name= 'about'),
+    path('categorias/', views.categorias,name= 'categorias'),
+    path('contacto/', views.contacto,name= 'contacto'),
 ]
