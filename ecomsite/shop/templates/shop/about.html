@@ -13,19 +13,37 @@
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
 <body>
-        <div class="container">  
     <!----------------------------Cuerpo del producto---------------------------------------->     
             {% block content%}
-            
-<h1>acerca de</h1>   
+<style>
+    #somos{
+        margin: 0px 0px 0px 0px;
+        padding: 5%;
+    }
+    main{
+        padding: 5%;
+        background-color: white;
+    }
+    p{
+        text-align: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        
+    }
+</style> 
+        <div id="somos">            
+            <main>
+                <p style="strong">Quienes somos</p>
 
+                Jaguarete KAA S.A. nació en 1971 como una cadena de tiendas físicas, predominantemente vendiendo zapatos. Actualmente, buscano expandirse y aprovechando el auge del eCommerce ha migrado a la plataforma digital. Somos una empresa que siempre que basa sus valores en ofrecer la mejor calidad y atendimieno al cliente, buscando que este tenga una experiencia agradable y satisfactoria.
+
+            </main>
+        </div>    
             {% endblock %}
-</div>
+</body>            
 <footer>
     <p>©Copyright</p>
     <p>Jennifer Anabel Martinez</p>
 </footer>
-</body>
 </html>
 
 

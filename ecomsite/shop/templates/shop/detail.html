@@ -8,46 +8,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+    <title>Detalles</title>
 </head>
 <body>
-    <div class="container">  
     <!----------------------------Cuerpo del producto---------------------------------------->
     {% block content%}
-                
-    <h1>detalless</h1>   
-                <div class="col-md-12">
-                    <div class="row">
-                    <img src="{{ products_objects.image }}">
-                    </div>
-                </div>       
- 
-                <div>
-                       {{ product_object.title }}
-                </div>        
-                <div class="row">        
-                    <div class="col-md-12">
-                        {{ product_objects.price }}
-                    </div>                        
-                </div> 
-                <div class="row">        
-                    <div class="col-md-12">
-                        {{ product_objects.discount_price }}
-                    </div>                        
-                </div>                   
-                <div class="row">        
-                    <div class="col-md-12">
-                        {{ product_objects.description }}
-                    </div>                        
-                </div>      
-    {% endblock %}                
-    </div>
+    <style>
+        main{
+            padding: 5%; 
+            background-color: white;
+        }    
+        
+        #titulo{
+            padding: 2%;
+            text-align: center;
+            width: 100%; 
+            background-color: black;
+            color: white;
+            font-family: sans-serif;   
+        }
+        #img{
+             display: flex;
+             padding: 2%;
+             justify-content: space-between;
+             width: 100%;
+        }
+        #descripcion{
+            padding: 2%;     
+        }
+        #precio{
+            padding: 2%;
+            justify-content: space-between;
+        }
+
+        </style>         
+<div>
+    <main class="card">
+
+                 
+
+        <div id="titulo">
+            {{ products_objects.title }}
+        </div>
+
+        <div id="img">
+
+        <img src="{{ products_objects.image }}">
+
+            <div id="descripcion">
+            {{ products_objects.description }}   
+            
+            <div id="precio">
+            {{ products_objects.price }}
+            {{ products_objects.discount_price }}
+            <button id="{{product.id}}" class="btn atc btn-danger">Añadir</button>
+            </div> 
+            </div>    
+        </div> 
+    </main>                
+</div>
+    {% endblock %}               
+</body> 
 <footer>
     <p>©Copyright</p>
     <p>Jennifer Anabel Martinez</p>
 </footer>
-</body>
+
 </html>
 
 

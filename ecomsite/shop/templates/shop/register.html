@@ -1,13 +1,136 @@
-    <form method="POST" action="">
+{% extends 'shop/index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+<title>Categorias</title>
+    <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+</head>
+<body>
+    
+    <!--imports-->
+    <!---bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Font Awesome-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    {% block content%}
+
+<!--code-->
+    <!--CSS-->
+        <style>
+            .myIcon
+            {
+                background-color: crimson;
+                color: #fff;
+
+                padding: 6px;
+                font-size: 26px;
+            
+                width: 12%;
+
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            input
+            {
+                border-left: none;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        </style>
+
+    <!--HTML-->
+    <form method="POST" action=""></form>
     {% csrf_token %}
-    <p>Usuario</p>    
-    {{form.username}}
-    <p>Email </p>
-    {{form.email}}
-    <p>Contraseña</p>
-    {{form.password1}}
-    <p>Contraseña:</p>    
-    {{form.password2}}
-    <input type="submit" name="Create User">
-    <a href={% url "login" %}>Login</a>
-</form>    
+        <div class="card" style="width:400px;">
+            <div class="card-body text-center">
+                <h2 class="card-title text-center"> register </h2>
+                <div class="d-flex mt-2 md-2"> 
+                    <i class="fa fa-user align-self-center myIcon"></i>
+                    {{form.username}}
+                </div>
+                <div class="d-flex mt-2 md-2"> 
+                    <i class="fa fa-envelope align-self-center myIcon"></i>
+                    {{form.email}}
+                </div>
+                <div class="d-flex mt-2 mb-2">
+                    <i class="fa fa-key align-self-center myIcon"></i>
+                    {{form.password1}}
+                </div>
+                <div class="d-flex mt-2 mb-2">
+                    <i class="fa fa-key align-self-center myIcon"></i>
+                    {{form.password2}} 
+                </div>
+                <input class="btn btn-danger mt-2 md-2 login_btn" type="submit" name="password" value="sign up"/>
+                <a href={% url "login" %}>Login</a>
+            </div>
+        </div>
+    </form>
+    {% endblock %}
+
+    <!--JS-->
+        <script>
+
+            let projectName = 'registerVisual';
+
+        </script>
+       
+    <!----------------------------Cuerpo del producto---------------------------------------->     
+
+    <!--HTML-->
+                {% csrf_token %}
+        <div class="card" style="width:400px;">
+            <div class="card-body text-center">
+                <h2 class="card-title text-center"> login </h2>
+                <div class="d-flex mt-2 md-2"> 
+                    <i class="fa fa-user align-self-center myIcon"></i>
+                    <input class="form-control myInput" type="text" placeholder="name"/>
+                </div>
+                <div class="d-flex mt-2 mb-2">
+                    <i class="fa fa-key align-self-center myIcon"></i>
+                    <input class="form-control myInput" type="password" placeholder="password" name="username"/>
+                </div>
+                <input class="btn btn-danger mt-2 md-2 login_btn" type="submit" name="password" value="sign in"/>
+            </div>
+        </div>
+
+    <!--JS-->
+   
+   
+</body>            
+<footer>
+    <p>©Copyright</p>
+    <p>Jennifer Anabel Martinez</p>
+</footer>
+</html>
+<script>
+
+    let projectName = 'loginVisual';
+
+</script>   
+
+
+
+    
+
+
+
+
+ <!--imports-->
+    <!---bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Font Awesome-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+<!--code-->
+    <!--CSS-->

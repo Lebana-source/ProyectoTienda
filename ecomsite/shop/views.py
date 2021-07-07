@@ -20,9 +20,18 @@ def about(request):
     product_objects = Products.objects.all()
     return render(request, 'shop/about.html',{'products_objects':product_objects})
 
+def nuevo(request):
+    product_objects = Products.objects.all()
+    return render(request, 'shop/nuevo.html',{'products_objects':product_objects})
+
 def categorias(request):
     product_objects = Products.objects.all()
-    return render(request, 'shop/categorias.html',{'products_objects':product_objects})
+
+    item_name = request.GET.get ('item_name')
+    if item_name != '' and item_name is not None: 
+        product_objects = product_objects.filter(title__icontains=item_name)
+    return render(request,'shop/categorias.html',{'product_objects':product_objects})
+
 
 def contacto(request):
     product_objects = Products.objects.all()
@@ -40,10 +49,14 @@ def login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request, username)
-            redirect(index)
+            redirect('index')
     context = {}
     return render(request, 'shop/login.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+ 
 def register(request):
 
     form = CreateUserForm()
@@ -53,6 +66,7 @@ def register(request):
             form.save()
     context = {'form':form}
     return render(request, 'shop/register.html', context) 
+
 
 
 
