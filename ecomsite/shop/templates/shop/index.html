@@ -1,6 +1,8 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,86 +11,237 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+<style>
+body{
+background-color:rgb(212, 108, 48);
+display: flex;
+flex-direction: column;
+}
+#header-img{ 
+    max-height: 140px;
+    max-width: 200px;
+    margin: 0px 0px 0px 0px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 100vw;
+    font-family: Sans-serif;
+    justify-content: space-between;
+}
+#carrito{
+    width: 3vw;
+    height: 4vh;
+}
+.boton{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 30px 10px 30px 10px;
+    gap: 4px;
+}
+.header-button{
+    color: rgb(212, 108, 48);
+    width: 100%;
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;    
+}
+.header-button:hover {
+    opacity: 1;
+    background: tomato;
+    color: white;
+    transform: scale(1.2);
+}
+nav{
+    display: flex;
+    background-color:rgb(212, 108, 48);
+    width: 100%;
+    padding: 1.5%;
+}
+.a-button{
+    color: white;
+    width: 15%;
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;
+    transition: 0.5s;
+    z-index: 100000;
+ 
+}
+.nav-button{
+    z-index: 100000;
+    transition: 0.5s;
+    color: white;
+    
+    width: 100%;
+    height: 100%;
+
+    font-family: Sans-serif;
+    border: none;
+    background: transparent;
+}
+.nav-button:hover {
+    opacity: 1;
+    background: tomato;
+    transform: scale(1.2);
+    letter-spacing: 1.5px;
+    transition: 0.5s;
+}
+#dropdown-menu{
+    padding: 1.5%;
+    background-color:rgb(212, 108, 48);
+    border: none;
+    border-radius: 0px;
+
+}
+footer{
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 5%;
+}    
+</style>
 </head>
+
 <body>
+
     <header id="header-index">
         <img id="header-img" src="https://image.freepik.com/vector-gratis/jaguar-vector-logo-icono-ilustracion-mascota_1893-891.jpg">
             <div class="boton">
-            <a class="header-button">Login</a>
-            <a class="header-button">Registrar</a>
+            <a href="login" class= "btn btn-sucess" class="header-button">Login</a>
+            <a href="register" class= "btn btn-sucess" class="header-button">Registrar</a>
             <button id="cart" type="button" class="header-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="uhuuhuh">
               Carrito (0)
             </button>           
-         </div>    
+         </div>
+         
     </header>
     
-                <nav>
-                    <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
-                    <a href="categorias" class="a-button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <button class="nav-button">Categorias</button>
-                    </a>
-                      <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="categorias">Todas las categorias</a>
-                        <a class="dropdown-item" href="#">Combos</a>
-                        <a class="dropdown-item" href="#">Comidas</a>
-                        <a class="dropdown-item" href="#">Bebidas</a>
-                      </div>                    
-                    <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
-                    <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
-                    <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
-                    <form class="row">
-                        <input id="input-busca" class="form-control" type="search" name="item_name" aria-label="Search" placeholder="Buscar">
-                        <button id="button-busca" class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>   
-                </nav>    
-    <div class="container">  
+    <nav>
+
+        <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
+        <a href="categorias" class="a-button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><button class="nav-button">Categorias</button></a>
+        <div id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" href="http://127.0.0.1:8000/categorias/">Todas las categorias</a>
+            <a class="dropdown-item" href="#">Combos</a>
+            <a class="dropdown-item" href="#">Comidas</a>
+            <a class="dropdown-item" href="#">Bebidas</a>
+
+        </div>                    
+        <a href="http://127.0.0.1:8000/about/" class="a-button"><button class="nav-button">Acerca de...</button></a>
+        <a href="http://127.0.0.1:8000/contacto/"class="a-button"><button class="nav-button">Contacto</button></a>
+        <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
+        <form id='nav-form' class="nav-item">
+            
+            <style>
+                nav form
+                {
+                    border: solid 1px #e5e5e5;
+                    /*flex*/
+                        display:flex;
+                }
+
+                nav form #nav-form-input
+                {
+                    border-radius: 0px;
+                    border: solid 1px white;
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                }
+
+                nav form #nav-form-button
+                {
+                    background: rgb(56, 104, 56);
+                    border: solid 5px #ffff;
+                    position: relative;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+            </style>
+            <input id="nav-form-input" class="form-control" type="search" name="item_name" aria-label="Search" placeholder="Buscar">
+            <button id="nav-form-button" class="btn btn-outline-success" type="submit">Buscar</button>
+
+        </form>
+
+    </nav>    
+
+    <main class="container">  
     <!----------------------------Cuerpo del producto---------------------------------------->
+        {% block content%}    
         <div class="row">
+            
             {% for product in product_objects %}
                 {%if product.title == "Bicicleta" or product.title == "pesas" or product.title == "Saco de boxeo"%}
+                
                     <div class="col-md-4">
+
                         <div class="card">
-                        <img src="{{ product.image }}" class="card-img-top">
+
+                            <img src="{{ product.image }}" class="card-img-top">
+
                             <div class="card-body">
+
                                 <div class="card-tittle">
                                     {{product.title }}
                                 </div>
+
                                 <div class="card-text">
                                     {{ product.price }}
                                 </div>
+
                                 <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
-                                <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>                      
-                            </div> 
+                                <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button> 
+                                                     
+                            </div>
+                             
                         </div>
                     </div>
+
                 {% else %}
+
                     <div class="col-md-12">
                         <div class="card">
                            
                             <div class="card-body">
+
                                 <div id="name{{ product.id}}" class="card-tittle">
                                     {{product.title }}
                                 </div>
+
                                 <div class="card-text">
                                     {{ product.price }}
-                                </div>                        
-                            </div> 
+                                </div> 
+
+                            </div>
+
                             <a href="{{ product.id }}" class="btn btn-warning">Ver</a>
                             <button id="{{product.id}}" class="btn atc btn-warning">Añadir</button>      
                         </div>                     
+
                     </div>
+
                 {% endif %}
             {% endfor %}    
+        {% endblock %}
         </div>        
-    </div>
+    </main>
+
 <footer>
+
     <p>©Copyright</p>
     <p>Jennifer Anabel Martinez</p>
+
 </footer>
+
 </body>
+
 <script type="text/javascript">
     console.log('Funciona');
 
@@ -120,8 +273,7 @@
         
     });
     $(function () {
-        $('.example-popover').popover({
-     container: 'body'
+        $('button').popover({container: 'body'});
     });     
     $(function () {
     $('[data-toggle="popover"]').popover()
@@ -130,17 +282,18 @@
         Display(cart); 
         function DisplayCart(cart){
             var cartString ="";
-            cartString += document.getElementByID("nm"+x).innerHTML + cart
+            cartString += document.getElementById("nm"+x).innerHTML + cart
             var cartIndex = 1;
             for(var x in cart){
                 cartString += cartIndex;
-                cartString += document.getElementById("name"+x).innerHTML + "cant:" + cart[x];
+                cartString += document.getElementById("nm"+x).innerHTML + "Qty:" + cart[x];
                 cartIndex += 1;
             }
             cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>Checkout</button></a>";
             document.getElementById("cart").setAttribute('data-content',cartString);
             $('[data-toggle="popover"]').popover();
         };
+
 </script>
 </html>
 

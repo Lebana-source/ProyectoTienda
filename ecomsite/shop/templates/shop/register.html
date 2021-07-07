@@ -1,0 +1,13 @@
+    <form method="POST" action="">
+    {% csrf_token %}
+    <p>Usuario</p>    
+    {{form.username}}
+    <p>Email </p>
+    {{form.email}}
+    <p>Contraseña</p>
+    {{form.password1}}
+    <p>Contraseña:</p>    
+    {{form.password2}}
+    <input type="submit" name="Create User">
+    <a href={% url "login" %}>Login</a>
+</form>    

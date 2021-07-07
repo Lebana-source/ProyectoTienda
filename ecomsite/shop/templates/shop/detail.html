@@ -1,3 +1,4 @@
+{% extends 'shop/index.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,35 +12,11 @@
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
 <body>
-    <header id="header-index">
-        <img id="header-img" src="https://image.freepik.com/vector-gratis/jaguar-vector-logo-icono-ilustracion-mascota_1893-891.jpg">
-            <div class="boton">
-            <button class="header-button">Login</button>
-            <button class="header-button">Registrar</button>
-            <button class="header-button"><img id="carrito" src="https://w7.pngwing.com/pngs/317/428/png-transparent-shopping-cart-computer-icons-add-to-cart-button-angle-text-service.png">Carrito</button>
-            </div>    
-    </header>
-   
-        <div>
-            <div id="menu">
-                <form>
-                    <div id="div-busca">
-                        <input id="input-busca" type="search" name="item_name" placeholder="Buscar">
-                        <button id="button-busca"  type="submit"><img id="img-search" src="https://toppng.com/uploads/preview/icono-de-lupa-11550131394mahkiu1ad0.png"></button>
-                    </div>
-                </form>
-                <nav>
-                    <a href="http://127.0.0.1:8000/" class="a-button"><button class="nav-button">Home</button></a>
-                    <a href="categorias" class="a-button"><button class="nav-button">Categorias</button></a>
-                    <a href="about" class="a-button"><button class="nav-button">Acerca de...</button></a>
-                    <a href="contacto"class="a-button"><button class="nav-button">Contacto</button></a>
-                    <a href="nuevoproducto.html" class="a-button"><button class="nav-button">Agregar Producto</button></a>
-                </nav>
-            </div>    
-        </div>   
     <div class="container">  
     <!----------------------------Cuerpo del producto---------------------------------------->
-aparece hostia
+    {% block content%}
+                
+    <h1>detalless</h1>   
                 <div class="col-md-12">
                     <div class="row">
                     <img src="{{ products_objects.image }}">
@@ -64,6 +41,7 @@ aparece hostia
                         {{ product_objects.description }}
                     </div>                        
                 </div>      
+    {% endblock %}                
     </div>
 <footer>
     <p>©Copyright</p>
